@@ -22,13 +22,15 @@ const getTheData = () => {
       travelers = data[0].travelers;
       allTrips = data[1].trips
       destinations = data[2].destinations;
-      console.log("DESTINATIONS", destinations)
     })
     .then(() => {
       getCurrentYear();
       getTraveler();
+      currentTraveler.displayFirstName();
       currentTraveler.calculateAnnualTripsCost(thisYear, destinations);
+      updateUserName();
       updateDomAnnualSpent();
+      currentTraveler.sortTrips();
     })
 
 }
@@ -36,6 +38,16 @@ const getTraveler = () => {
   currentTraveler = new Traveler(travelers[43])
   currentTraveler.getTravelersTrips(allTrips) 
 } 
+
+// const todaysDate = () => {
+//   thisDay = Date.now()
+// }
+
+// const todaysDate = () => {
+//   today = new Date().toLocaleDateString()
+//   .split('/').reverse().join('/0');
+//   console.log('TODAY', today)
+// }
 
 const getCurrentYear = () => {
   const today = new Date();
@@ -50,6 +62,11 @@ const updateDomAnnualSpent = () => {
   const annualSpent = currentTraveler.calculateAnnualTripsCost(thisYear, destinations);
   domUpdates.updateHeaderText(annualSpent);
 };
+
+const updateUserName = () => {
+  const userName = currentTraveler.displayFirstName();
+  domUpdates.updateHeaderGreeting(userName);
+}
 
 // Once we have our trips, we want to have a method that will divide the dates into past, present, and future. These will be used to render to dom. 
 // An argument of the current date should be used for this sorting method

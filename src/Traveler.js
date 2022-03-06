@@ -3,7 +3,12 @@ class Traveler {
     this.id = dataSet.id;
     this.name = dataSet.name;
     this.travelerType = dataSet.travelerType;
-    this.trips = [];
+    this.travelersTrips = [];
+    this.pastTrips = [];
+    this.currentTrips = [];
+    this.upcomingTrips = [];
+    this.pendingTrips = [];
+    // present
   }
 
   displayFirstName() {
@@ -14,13 +19,52 @@ class Traveler {
   getTravelersTrips(allTrips) {
     return allTrips.filter(trip => {
       if (trip.userID === this.id) {
-        this.trips.push(trip)
+        this.travelersTrips.push(trip)
       }
     })
   }
 
+  sortPendingTrips() {
+    const pending = this.travelersTrips.filter(trip => {
+      if (trip.status === 'pending') {
+      this.pendingTrips.push(trip)
+      }
+    });
+    return pending;
+  }
+
+  sortPastTrips() {
+    const past = this.travelersTrips.filter(trip => {
+      const currentDate = Date.now();
+      const tripDate = new Date(`${trip.date}`).getTime();
+      if (currentDate > tripDate) {
+        return trip;
+      } 
+    });
+    this.pastTrips = past;
+    return past;
+  }
+
+  sortUpcomingTrips() {
+    const upcoming = this.travelersTrips.filter(trip => {
+      const currentDate = Date.now();
+      const tripDate = new Date(`${trip.date}`).getTime();
+      if (currentDate < tripDate && trip.status === 'approved') {
+        return trip;
+      }
+    });
+    this.upcomingTrips = upcoming;
+    return upcoming;
+  }
+
+  sortTrips() {
+    this.sortPendingTrips();
+    this.sortPastTrips();
+    this.sortUpcomingTrips();
+  }
+
   filterCurrentYearTrips(currentYear) {
-    return this.trips.filter(trip => {
+    return this.travelersTrips.filter(trip => {
       const splitDate = parseInt(trip.date.split("/")[0])
       return splitDate === currentYear
     })
