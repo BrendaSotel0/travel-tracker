@@ -1,3 +1,39 @@
-html{
-  /* background-color: red; */
+html, 
+body {
+  height: 100%;
+  width: 100%;
+}
+
+/* .hidden {
+  display: none;
+} */
+
+.trip-board-img {
+  width: 40%;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.main-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-trips-board {
+  display: flex;
+  flex-direction: row;
+  width: 100%
+}
+
+.main-trips-board-destination {
+  width: 33%;
+}
+
+.number-input {
+  width: 75px;
 }
