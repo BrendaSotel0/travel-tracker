@@ -17,7 +17,6 @@ const getTheData = () => {
   return Promise.all([fetchData('travelers'), fetchData('trips'), fetchData('destinations')])
     .then(data => {
       travelers = data[0].travelers;
-      console.log("TRAVELERS", data[0].travelers)
       allTrips = data[1].trips
       destinations = data[2].destinations;
       console.log("DESTINATIONS", destinations)
@@ -25,28 +24,22 @@ const getTheData = () => {
     .then(() => {
       getCurrentYear();
       getTraveler();
-      console.log("derp", currentTraveler)
-      currentTraveler.filterCurrentYearTrips(thisYear)
+      currentTraveler.calculateAnnualTripsCost(thisYear, destinations)
     })
 
 }
 const getTraveler = () => {
   currentTraveler = new Traveler(travelers[43])
   currentTraveler.getTravelersTrips(allTrips) 
-  console.log("DOTTRIPS", currentTraveler.trips)
-  console.log('CURRENTTRAVELER', currentTraveler)
 } 
 
 const getCurrentYear = () => {
   const today = new Date();
   thisYear = new Date(today).getFullYear();
-  console.log("TODAY", today)
-  console.log("YEAR", thisYear)
 } 
 
 getTheData();
-console.log("NEW", travelers)
-console.log("TRAVELERS2", travelers)
+console.log("TRAVELERS", travelers)
 
 
 // Once we have our trips, we want to have a method that will divide the dates into past, present, and future. These will be used to render to dom. 

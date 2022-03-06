@@ -4,7 +4,6 @@ class Traveler {
     this.name = dataSet.name;
     this.travelerType = dataSet.travelerType;
     this.trips = [];
-    console.log("DS", this.name)
   }
 
   displayFirstName() {
@@ -27,6 +26,19 @@ class Traveler {
     })
   }
 
+  calculateAnnualTripsCost(year, destinations) {
+    const thisYearsTrips = this.filterCurrentYearTrips(year);
+    const result = thisYearsTrips.reduce((acc, trip) => {
+      destinations.forEach(destination => {
+        if (destination.id === trip.destinationID) {
+          acc += (destination.estimatedLodgingCostPerDay * trip.duration) + (destination.estimatedFlightCostPerPerson * trip.travelers)
+        }
+      })
+      return acc
+    }, 0)
+    return result * 1.1
+      
+  }
 
 }
 
