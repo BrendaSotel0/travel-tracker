@@ -1,5 +1,3 @@
-import Trip from "./Trip";
-
 class Traveler {
   constructor(dataSet) {
     this.id = dataSet.id;
@@ -83,10 +81,9 @@ class Traveler {
       });
       return acc;
     }, 0);
-    return result * 1.1;
+    return Math.round(result * 1.1);
   }
 
 }
-
 
 export default Traveler;

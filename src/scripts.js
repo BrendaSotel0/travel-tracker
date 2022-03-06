@@ -31,11 +31,12 @@ const getTheData = () => {
       updateDomAnnualSpent();
       currentTraveler.sortTrips();
       updateDomTripBoard();
+      updateDestinationsForm(destinations);
     })
 
 }
 const getTraveler = () => {
-  currentTraveler = new Traveler(travelers[37])
+  currentTraveler = new Traveler(travelers[49])
   currentTraveler.getTravelersTrips(allTrips, destinations) 
 } 
 
@@ -53,8 +54,6 @@ const updateDomAnnualSpent = () => {
   domUpdates.updateHeaderText(annualSpent);
 };
 
-
-
 const updateUserName = () => {
   const userName = currentTraveler.name.split(' ')[0]
   domUpdates.updateHeaderGreeting(userName);
@@ -62,4 +61,8 @@ const updateUserName = () => {
 
 const updateDomTripBoard = () => {
   domUpdates.updateTripBoard(currentTraveler, destinations);
+}
+
+const updateDestinationsForm = (destinationData) => {
+  domUpdates.updateDestinationSelection(destinationData)
 }

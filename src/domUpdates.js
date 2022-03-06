@@ -48,7 +48,17 @@ const domUpdates = {
     </div>
     `
     })
-  }
+  },
+
+  updateDestinationSelection(destinations) {
+    const destinationSelector = document.querySelector('.destination-selector');
+    const getDestination = destinations.forEach(destination => {
+      const destinationOption = document.createElement('option');
+      destinationOption.innerText = destination.destination;
+      destinationOption.value = destination.destination;
+      destinationSelector.appendChild(destinationOption);
+    });
+  },
 
 }
 
