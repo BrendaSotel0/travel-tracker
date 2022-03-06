@@ -8,7 +8,13 @@ class Trip {
     this.duration = tripDataSet.duration;
     this.status = tripDataSet.status;
     this.suggestedActivities = tripDataSet.suggestedActivities;
+    this.destination = null
   }
+
+  // findTripCost() {
+
+  // }
+
 }
 
 export default Trip;
