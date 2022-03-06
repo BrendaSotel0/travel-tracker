@@ -66,3 +66,25 @@ const updateDomTripBoard = () => {
 const updateDestinationsForm = (destinationData) => {
   domUpdates.updateDestinationSelection(destinationData)
 }
+
+const findInputDestination = () => {
+  const inputDestinationDetails = destinations.find(destination => {
+    return destination.destination === destinationsInput.value;
+  })
+  return inputDestinationDetails;
+};
+
+const calculateTripEstimate = () => {
+  const destinationInput = findInputDestination();
+  const requestedTravelQuote = (durationInput.value * destinationInput.estimatedLodgingCostPerDay) + 
+  (travelersInput.value * destinationInput.estimatedFlightCostPerPerson); 
+  console.log(Math.round(requestedTravelQuote * 1.1))
+  return Math.round(requestedTravelQuote * 1.1);
+};
+
+const formDate = document.getElementById('formDate');
+const durationInput = document.getElementById('formDuration');
+const travelersInput = document.getElementById('formNumberOfTravelers');
+const estimateButton = document.getElementById('estimateTripTotalBtn');
+const destinationsInput = document.getElementById('destinationSelector');
+estimateButton.addEventListener("click", calculateTripEstimate);
