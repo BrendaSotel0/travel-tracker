@@ -15,6 +15,7 @@ let allTrips;
 let destinations;
 let currentTraveler;
 let thisYear;
+let currentUserId;
 
 const getTheData = () => {
   return Promise.all([fetchData('travelers'), fetchData('trips'), fetchData('destinations')])
@@ -33,12 +34,26 @@ const getTheData = () => {
       updateDomTripBoard();
       updateDestinationsForm(destinations);
       updateTripEstimateValue();
-
     })
 };
 
+const getUsersId = () => {
+  currentUserId = loginNameInput.value.slice(8);
+  verifyLogIn();
+  getTheData();
+}
+
+const verifyLogIn = () => {
+  let userLogin = loginNameInput.value.slice(0, 8)
+  if (userLogin == 'traveler' && loginPassword.value == 'travel') {
+    domUpdates.loginSubmit();
+  } else {
+    domUpdates.invalidLogin();
+  }
+}
+
 const getTraveler = () => {
-  currentTraveler = new Traveler(travelers[49])
+  currentTraveler = new Traveler(travelers[currentUserId - 1])
   currentTraveler.getTravelersTrips(allTrips, destinations) 
 }; 
 
@@ -99,6 +114,7 @@ const addTripRequest = () => {
   postData(tripRequest).then((data) => {
     domUpdates.resetDom();
     getTheData();
+    domUpdates.resetForm();
   })
 }
 
@@ -108,6 +124,13 @@ const travelersInput = document.getElementById('formNumberOfTravelers');
 const estimateButton = document.getElementById('estimateTripTotalBtn');
 const destinationsInput = document.getElementById('destinationSelector');
 const confirmButtom = document.getElementById('tripConfirmationBtn');
-window.addEventListener("load", getTheData);
+const loginNameInput = document.getElementById('loginUsername');
+const loginPassword = document.getElementById('loginPassword');
+// const loginButton = document.getElementById('loginButton');
+const loginForm = document.querySelector('.login-form');
 estimateButton.addEventListener("click", calculateTripEstimate);
 confirmButtom.addEventListener("click", addTripRequest);
+loginForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+  getUsersId();
+});
