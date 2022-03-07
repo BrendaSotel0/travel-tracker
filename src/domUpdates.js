@@ -27,7 +27,7 @@ const domUpdates = {
     })
 
     if (traveler.upcomingTrips.length === 0) {
-      currentTripMessage.innerHTML = `<p> It doesn't look like you have any upcoming adventures</p>`
+      currentTripMessage.innerHTML += `<p> It doesn't look like you have any upcoming adventures</p>`
     } else {
     traveler.upcomingTrips.forEach((trip) => {
       upcomingTripsBoard.innerHTML += `
@@ -95,7 +95,7 @@ const domUpdates = {
 
   invalidLogin() {
     const loginError = document.querySelector('.login-error');
-    loginError.innerHTML = `<h2 class="invalid-login">Invalid login</h2>`
+    loginError.innerHTML = `Invalid login`
   },
 
 }
