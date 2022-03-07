@@ -48,7 +48,32 @@ const domUpdates = {
     </div>
     `
     })
-  }
+  },
+
+  updateDestinationSelection(destinations) {
+    const destinationSelector = document.querySelector('.destination-selector');
+    const getDestination = destinations.forEach(destination => {
+      const destinationOption = document.createElement('option');
+      destinationOption.innerText = destination.destination;
+      destinationOption.value = destination.destination;
+      destinationSelector.appendChild(destinationOption);
+    });
+  },
+
+  updateTripEstimate(estimate) {
+    const tripEstimate = document.querySelector('.new-trip-cost-header');
+    tripEstimate.innerHTML = `Trip Estimate: $${estimate ? estimate : "0"}`
+  },
+
+  resetDom() {
+    const pastTripsBoard = document.querySelector('#pastTripBoard');
+    const upcomingTripsBoard = document.querySelector('#upcomingTripBoard');
+    const pendingTripsBoard = document.querySelector('#pendingTripBoard');
+
+    pastTripsBoard.innerHTML = `<h2 class="trip-board-header">Past Trips</h2>`;
+    upcomingTripsBoard.innerHTML = `<h2 class="trip-board-header">Upcoming Trips</h2>`;
+    pendingTripsBoard.innerHTML = `<h2 class="trip-board-header">Pending Trips</h2>`;
+  },
 
 }
 

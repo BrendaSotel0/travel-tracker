@@ -11,9 +11,10 @@ class Trip {
     this.destination = null
   }
 
-  // findTripCost() {
-
-  // }
+  findTripCost() {
+    //the trips cost is duration * cost to say
+    //and num of ppl * cost per flight
+  }
 
 }
 

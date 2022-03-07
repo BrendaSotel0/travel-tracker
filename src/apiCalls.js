@@ -16,5 +16,27 @@ const fetchData = (dataType) => {
   })
 }
 
+const postData = (tripRequest) => {
+  return fetch(`http://localhost:3001/api/v1/trips`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(tripRequest)
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('422 Error: Server is not currently running')
+      } else {
+        return response.json()
+      }
+    })
+    .catch(error => {
+      errorMsg.innerText = 'Error encountered. Your trip request cannot be accepted.'
+      console.warn(error)
+    })
+}
 
-export default fetchData;
+
+export {
+  fetchData,
+  postData
+};
