@@ -84,18 +84,22 @@ const calculateTripEstimate = () => {
 const updateTripEstimateValue = (estimatedQuote) => {
     domUpdates.updateTripEstimate(estimatedQuote);
 }
+
 const addTripRequest = () => {
   let tripRequest = {
     id: Date.now(),
-    userID: currentTraveler.ID,
-    destinationID: parseInt(findInputDestination()),
+    userID: currentTraveler.id,
+    destinationID: parseInt(findInputDestination().id),
     travelers: parseInt(travelersInput.value),
     date: formDate.value.split("-").join("/"),
     duration: parseInt(durationInput.value),
     status: 'pending',
     suggestedActivities: []
   };
-  postData(tripRequest);
+  postData(tripRequest).then((data) => {
+    domUpdates.resetDom();
+    getTheData();
+  })
 }
 
 const formDate = document.getElementById('formDate');
