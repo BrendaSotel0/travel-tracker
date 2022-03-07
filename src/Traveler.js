@@ -8,7 +8,6 @@ class Traveler {
     this.currentTrips = [];
     this.upcomingTrips = [];
     this.pendingTrips = [];
-    // present
   }
 
   getTravelersTrips(allTrips, destinations) {

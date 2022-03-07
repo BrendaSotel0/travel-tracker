@@ -60,6 +60,11 @@ const domUpdates = {
     });
   },
 
+  updateTripEstimate(estimate) {
+    const tripEstimate = document.querySelector('.new-trip-cost-header');
+    tripEstimate.innerHTML = `Trip Estimate: $${estimate ? estimate : "0"}`
+  }
+
 }
 
 export default domUpdates;
