@@ -111,3 +111,5 @@ const confirmButtom = document.getElementById('tripConfirmationBtn');
 window.addEventListener("load", getTheData);
 estimateButton.addEventListener("click", calculateTripEstimate);
 confirmButtom.addEventListener("click", addTripRequest);
+
+//This is my accessibility branch
