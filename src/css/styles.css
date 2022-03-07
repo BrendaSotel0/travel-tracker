@@ -4,9 +4,9 @@ body {
   width: 100%;
 }
 
-/* .hidden {
+.hidden {
   display: none;
-} */
+}
 
 .trip-board-img {
   width: 40%;
@@ -36,4 +36,21 @@ body {
 
 .number-input {
   width: 75px;
+}
+
+.login-greeting {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-page {
+  display: flex;
+  justify-content: center;
+  padding-top: 4%;
+}
+
+.invalid-login {
+  
 }

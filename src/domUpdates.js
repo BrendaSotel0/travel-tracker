@@ -75,6 +75,29 @@ const domUpdates = {
     pendingTripsBoard.innerHTML = `<h2 class="trip-board-header">Pending Trips</h2>`;
   },
 
+  resetForm() {
+    const formDate = document.getElementById('formDate');
+    const durationInput = document.getElementById('formDuration');
+    const travelersInput = document.getElementById('formNumberOfTravelers');
+    const destinationsInput = document.getElementById('destinationSelector');
+    formDate.value = '';
+    durationInput.value = '';
+    travelersInput.value = '';
+    destinationsInput.value = '';
+  },
+
+  loginSubmit() {
+    const loginPage = document.querySelector('.login-section');
+    const dashboard = document.querySelector('.dashboard');
+    loginPage.classList.add('hidden');
+    dashboard.classList.remove('hidden')
+  },
+
+  invalidLogin() {
+    const loginError = document.querySelector('.login-error');
+    loginError.innerHTML = `<h2 class="invalid-login">Invalid login</h2>`
+  },
+
 }
 
 export default domUpdates;

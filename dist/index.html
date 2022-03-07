@@ -11,18 +11,26 @@
 </head>
 <body>
   <p class="error-display"></p>
+  <section class="login-section">
+    <header class="login-greeting">
+      <h1>Welcome back!</h1>
+      <h2>Please log in to view your travel history</h2>
+    </header>
+    <section class="login-page" id="loginPage">
+      <form class="login-form">
+        <label for="loginUsername"></label>
+        <input type="text" placeholder="Username" required id="loginUsername">
+        <label for="loginPassword"></label>
+        <input type="password" placeholder="Password" required id="loginPassword">
+        <button class="login-button" id="loginButton" label="loginButton">Let's go!</button>
+      </form>
+      <h2 class="login-error"></h2>
+    </section>
+  </section>
 
-  <!-- <section class="login-page" id="loginPage">
-    <form class="login-form">
-      <label for="loginUsername"></label>
-      <input type="text" placeholder="Username" required id="loginUsername">
-      <label for="loginPassword"></label>
-      <input type="password" placeholder="Password" required id="loginPassword">
-      <button class="login-button" id="loginButton" label="loginButton">Let's go!</button>
-    </form>
-  </section> -->
   <main class="dashboard hidden" id="dashboard">
-    <!-- <button class="logoutBtn hidden" id="logoutBtn">Logout</button> -->
+    <button class="logoutBtn hidden" id="logoutBtn">Logout</button>
+
     <header>
       <div class="header-container">
         <h1 class="header-greeting" id="headerGreeting">Hello, </h1>
@@ -34,7 +42,7 @@
     </div>
     <section type="form" class="main-form" id="mainForm">
       <label for="formDate" class="form-label">Departure</label>
-      <input type="date" id="formDate" min="2021/11/17">
+      <input type="date" id="formDate" min="2022/01/01">
       <label for="formDuration"></label>
       <input type="number" min="1" max="365" id="formDuration" placeholder="Duration" required class="number-input">
       <label for="formNumberTravelers"></label>
