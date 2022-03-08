@@ -14,7 +14,6 @@ const domUpdates = {
     const pastTripsBoard = document.querySelector('#pastTripBoard');
     const upcomingTripsBoard = document.querySelector('#upcomingTripBoard');
     const pendingTripsBoard = document.querySelector('#pendingTripBoard');
-    const currentTripMessage = document.querySelector('.current-trip-message');
 
     traveler.pastTrips.forEach((trip) => {
       pastTripsBoard.innerHTML += `
@@ -28,7 +27,7 @@ const domUpdates = {
     });
 
     if (traveler.upcomingTrips.length === 0) {
-      currentTripMessage.innerHTML += `<p> It doesn't look like you have any upcoming adventures</p>`;
+      upcomingTripsBoard.innerHTML += `<p> It doesn't look like you have any upcoming adventures</p>`;
     } else {
     traveler.upcomingTrips.forEach((trip) => {
       upcomingTripsBoard.innerHTML += `
