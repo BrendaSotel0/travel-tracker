@@ -1,11 +1,38 @@
+body {
+  display: flex;
+  /* display: block; */
+  height: 100vh;
+  width: 100vh;
+  background: url("https://images.unsplash.com/photo-1578894381163-e72c17f2d45f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8d29ybGQlMjB0cmF2ZWx8ZW58MHx8MHx8&w=1000&q=80")no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  background-position: center center;
+  opacity: 1;
+}
+
 html, 
 body {
   height: 100%;
   width: 100%;
+  Font-Family: 'Cormorant Garamond', Serif;
+  Font-Size: 25px;
 }
 
 .hidden {
   display: none;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
 }
 
 .trip-board-img {
@@ -49,4 +76,22 @@ body {
   display: flex;
   justify-content: center;
   padding-top: 4%;
+}
+
+.estimate-and-post {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-section {
+  padding-top: 15%;
+}
+
+.transparent{
+    background-color:antiquewhite;
+    opacity: 0.8;
+    height: 26%;
+    /* padding-top: 15%; */
 }

@@ -6,12 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald&family=Yuji+Syuku&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:700i|Fira+Sans" rel="stylesheet">
   <title>Travel Tracker</title>
 </head>
 <body>
+  <!-- <img src="./images/travelmap.png" alt="a world map with traveling accessories"> -->
   <p class="error-display"></p>
-  <section class="login-section">
+  <section class="login-section transparent">
     <header class="login-greeting">
       <h1>Welcome back!</h1>
       <h2>Please log in to view your travel history</h2>
@@ -30,7 +31,7 @@
 
   <main class="dashboard hidden" id="dashboard">
     <header>
-      <div class="header-container">
+      <div class="header-container transparent">
         <h1 class="header-greeting" id="headerGreeting">Hello, </h1>
         <h2 class="header-message" id="headerMessage">You've spent on trips this year!</h2>
       </div>
@@ -58,7 +59,7 @@
         <h3 class="new-trip-cost-header">Trip Estimate: </h3>
       </div>
       <button id="estimateTripTotalBtn">See Trip Estimate</button>
-      <button id="tripConfirmationBtn">Confirm</button>
+      <button id="tripConfirmationBtn">Confirm Trip</button>
     </section>
     <section class="main-current-trip">
       <article class="main-current-trip-board" id="currentTripBoard">

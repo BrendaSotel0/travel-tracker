@@ -23,6 +23,7 @@ const domUpdates = {
         alt="${trip.destination.alt}">
       <h3 class="current-trip-message">${trip.destination.destination}</h3>
     </div>
+    <hr>
     `
     })
 
@@ -36,6 +37,7 @@ const domUpdates = {
             alt="${trip.destination.alt}">
           <h3 class="current-trip-message">${trip.destination.destination}</h3>
         </div>
+        <hr>
       `}
     )
     }
@@ -46,6 +48,7 @@ const domUpdates = {
         alt="${trip.destination.alt}">
       <h3 class="current-trip-message">${trip.destination.destination}</h3>
     </div>
+    <hr>
     `
     })
   },

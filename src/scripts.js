@@ -8,7 +8,7 @@ import TripRepo from './TripRepo';
 
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
-// import './images/travel.jpg'
+import './images/travelmap.png';
 
 let travelers;
 let allTrips;
