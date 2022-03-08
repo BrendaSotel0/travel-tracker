@@ -38,8 +38,4 @@ describe('Traveler', () => {
     expect(traveler1.travelerType).to.equal("relaxer");
   });
 
-  it('should display travelers first name', () => {
-    // expect(traveler1.displayFirstName()).to.equal("Ham")
-  });
-
 });
