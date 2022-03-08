@@ -126,7 +126,6 @@ const destinationsInput = document.getElementById('destinationSelector');
 const confirmButtom = document.getElementById('tripConfirmationBtn');
 const loginNameInput = document.getElementById('loginUsername');
 const loginPassword = document.getElementById('loginPassword');
-// const loginButton = document.getElementById('loginButton');
 const loginForm = document.querySelector('.login-form');
 estimateButton.addEventListener("click", calculateTripEstimate);
 confirmButtom.addEventListener("click", addTripRequest);
