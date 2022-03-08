@@ -24,11 +24,11 @@ const domUpdates = {
       <h3 class="current-trip-message">${trip.destination.destination}</h3>
     </div>
     <hr>
-    `
-    })
+    `;
+    });
 
     if (traveler.upcomingTrips.length === 0) {
-      currentTripMessage.innerHTML += `<p> It doesn't look like you have any upcoming adventures</p>`
+      currentTripMessage.innerHTML += `<p> It doesn't look like you have any upcoming adventures</p>`;
     } else {
     traveler.upcomingTrips.forEach((trip) => {
       upcomingTripsBoard.innerHTML += `
@@ -38,8 +38,9 @@ const domUpdates = {
           <h3 class="current-trip-message">${trip.destination.destination}</h3>
         </div>
         <hr>
-      `}
-    )
+      `;
+    });
+
     }
     traveler.pendingTrips.forEach((trip) => {
       pendingTripsBoard.innerHTML += `
@@ -49,8 +50,8 @@ const domUpdates = {
       <h3 class="current-trip-message">${trip.destination.destination}</h3>
     </div>
     <hr>
-    `
-    })
+    `;
+    });
   },
 
   updateDestinationSelection(destinations) {
@@ -65,14 +66,13 @@ const domUpdates = {
 
   updateTripEstimate(estimate) {
     const tripEstimate = document.querySelector('.new-trip-cost-header');
-    tripEstimate.innerHTML = `Trip Estimate: $${estimate ? estimate : "0"}`
+    tripEstimate.innerHTML = `Trip Estimate: $${estimate ? estimate : "0"}`;
   },
 
   resetDom() {
     const pastTripsBoard = document.querySelector('#pastTripBoard');
     const upcomingTripsBoard = document.querySelector('#upcomingTripBoard');
     const pendingTripsBoard = document.querySelector('#pendingTripBoard');
-
     pastTripsBoard.innerHTML = `<h2 class="trip-board-header">Past Trips</h2>`;
     upcomingTripsBoard.innerHTML = `<h2 class="trip-board-header">Upcoming Trips</h2>`;
     pendingTripsBoard.innerHTML = `<h2 class="trip-board-header">Pending Trips</h2>`;
@@ -93,13 +93,13 @@ const domUpdates = {
     const loginPage = document.querySelector('.login-section');
     const dashboard = document.querySelector('.dashboard');
     loginPage.classList.add('hidden');
-    dashboard.classList.remove('hidden')
+    dashboard.classList.remove('hidden');
   },
 
   invalidLogin() {
     const loginError = document.querySelector('.login-error');
-    loginError.innerHTML = `Invalid login`
-  },
+    loginError.innerHTML = `Invalid login`;
+  }
 
 }
 

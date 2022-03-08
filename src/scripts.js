@@ -6,10 +6,6 @@ import {fetchData, postData} from './apiCalls';
 import domUpdates from './domUpdates';
 import TripRepo from './TripRepo';
 
-
-// An example of how you tell webpack to use an image (also need to link to it in the index.html)
-import './images/travelmap.png';
-
 let travelers;
 let allTrips;
 let destinations;
@@ -21,19 +17,11 @@ const getTheData = () => {
   return Promise.all([fetchData('travelers'), fetchData('trips'), fetchData('destinations')])
     .then(data => {
       travelers = data[0].travelers;
-      allTrips = new TripRepo(data[1].trips)
+      allTrips = new TripRepo(data[1].trips);
       destinations = data[2].destinations;
     })
     .then(() => {
-      getCurrentYear();
-      getTraveler();
-      currentTraveler.calculateAnnualTripsCost(thisYear, destinations);
-      updateUserName();
-      updateDomAnnualSpent();
-      currentTraveler.sortTrips();
-      updateDomTripBoard();
-      updateDestinationsForm(destinations);
-      updateTripEstimateValue();
+      domManipulation();
     })
 };
 
@@ -41,20 +29,20 @@ const getUsersId = () => {
   currentUserId = loginNameInput.value.slice(8);
   verifyLogIn();
   getTheData();
-}
+};
 
 const verifyLogIn = () => {
-  let userLogin = loginNameInput.value.slice(0, 8)
-  if (userLogin == 'traveler' && loginPassword.value == 'travel') {
+  let userLogin = loginNameInput.value.slice(0, 8);
+  if (userLogin === 'traveler' && loginPassword.value === 'travel') {
     domUpdates.loginSubmit();
   } else {
     domUpdates.invalidLogin();
   }
-}
+};
 
 const getTraveler = () => {
-  currentTraveler = new Traveler(travelers[currentUserId - 1])
-  currentTraveler.getTravelersTrips(allTrips, destinations) 
+  currentTraveler = new Traveler(travelers[currentUserId - 1]);
+  currentTraveler.getTravelersTrips(allTrips, destinations);
 }; 
 
 const getCurrentYear = () => {
@@ -68,7 +56,7 @@ const updateDomAnnualSpent = () => {
 };
 
 const updateUserName = () => {
-  const userName = currentTraveler.name.split(' ')[0]
+  const userName = currentTraveler.name.split(' ')[0];
   domUpdates.updateHeaderGreeting(userName);
 };
 
@@ -77,13 +65,13 @@ const updateDomTripBoard = () => {
 };
 
 const updateDestinationsForm = (destinationData) => {
-  domUpdates.updateDestinationSelection(destinationData)
+  domUpdates.updateDestinationSelection(destinationData);
 };
 
 const findInputDestination = () => {
   const inputDestinationDetails = destinations.find(destination => {
     return destination.destination === destinationsInput.value;
-  })
+  });
   return inputDestinationDetails;
 };
 
@@ -91,14 +79,14 @@ const calculateTripEstimate = () => {
   const destinationInput = findInputDestination();
   const requestedTravelQuote = 
   (durationInput.value * destinationInput.estimatedLodgingCostPerDay) + 
-  (travelersInput.value * destinationInput.estimatedFlightCostPerPerson)
+  (travelersInput.value * destinationInput.estimatedFlightCostPerPerson);
   const estimateWithPercent = Math.round(requestedTravelQuote * 1.1); 
   updateTripEstimateValue(estimateWithPercent);
 };
 
 const updateTripEstimateValue = (estimatedQuote) => {
     domUpdates.updateTripEstimate(estimatedQuote);
-}
+};
 
 const addTripRequest = () => {
   let tripRequest = {
@@ -116,7 +104,19 @@ const addTripRequest = () => {
     getTheData();
     domUpdates.resetForm();
   })
-}
+};
+
+const domManipulation = () => {
+  getCurrentYear();
+  getTraveler();
+  currentTraveler.calculateAnnualTripsCost(thisYear, destinations);
+  updateUserName();
+  updateDomAnnualSpent();
+  currentTraveler.sortTrips();
+  updateDomTripBoard();
+  updateDestinationsForm(destinations);
+  updateTripEstimateValue();
+};
 
 const formDate = document.getElementById('formDate');
 const durationInput = document.getElementById('formDuration');
