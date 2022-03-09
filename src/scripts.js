@@ -1,7 +1,5 @@
 import './css/styles.css';
 import Traveler from './Traveler';
-import Trip from './Trip';
-import Destination from './Destination';
 import {fetchData, postData} from './apiCalls';
 import domUpdates from './domUpdates';
 import TripRepo from './TripRepo';
