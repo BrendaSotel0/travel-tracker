@@ -11,7 +11,7 @@ class Traveler {
   }
 
   getTravelersTrips(allTrips, destinations) {
-    allTrips.createTrips()
+    allTrips.createTrips();
     return allTrips.trips.filter(trip => {
       if (trip.userID === this.id) {
         trip.destination = this.findDestinationInfo(trip.destinationID, destinations)
